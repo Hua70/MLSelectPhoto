@@ -197,6 +197,11 @@ static NSString *_cellIdentifier = @"collectionViewCell";
     
     self.makeView.hidden = !(self.doneAssets.count && self.isEditing);
     self.makeView.text = [NSString stringWithFormat:@"%ld",self.doneAssets.count];
+    if([[self.deleteAssets allValues] count] == 0 || [self.deleteAssets valueForKeyPath:[NSString stringWithFormat:@"%ld",(self.currentPage)]] == nil){
+        [self.deleleBtn setImage:[[UIImage imageNamed:MLSelectPhotoSrcName(@"AssetsPickerChecked")] imageWithTintColor:[UIColor grayColor]] forState:UIControlStateNormal];
+    }else{
+        [self.deleleBtn setImage:[UIImage imageNamed:MLSelectPhotoSrcName(@"AssetsPickerChecked") ] forState:UIControlStateNormal];
+    }
 }
 
 - (void)deleteAsset{
