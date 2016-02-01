@@ -18,7 +18,7 @@
 // 长按图片弹出的UIActionSheet
 @property (strong,nonatomic) UIActionSheet *sheet;
 // 当前提供的分页数
-@property (nonatomic , assign) NSInteger currentPage;
+@property (nonatomic,assign) long currentPage;
 // 最多能选择图片的个数
-@property (assign,nonatomic) NSInteger maxCount;
+@property (assign,nonatomic) long maxCount;
 @end

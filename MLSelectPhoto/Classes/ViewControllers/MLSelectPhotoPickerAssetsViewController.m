@@ -189,7 +189,7 @@ static NSString *const _identifier = @"toolBarThumbCollectionViewCell";
     self.collectionView.doneAsstes = noti.userInfo[@"assets"];
     [self.collectionView reloadData];
 
-    NSInteger count = 0;
+    long count = 0;
     if (self.collectionView.selectAsstes.count < self.selectAssets.count) {
         count = self.collectionView.selectAsstes.count;
     }else{
