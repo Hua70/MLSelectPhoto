@@ -28,7 +28,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define DefaultNavTitleColor UIColorFromRGB(0xd5d5d5)
 
 #define iOS7gt ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
-#define iOS8gt ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+#define iOS8gt ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
 
 // NSNotification
 static NSString *PICKER_TAKE_DONE = @"PICKER_TAKE_DONE";
