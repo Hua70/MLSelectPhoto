@@ -298,6 +298,7 @@ static NSString *const _identifier = @"toolBarThumbCollectionViewCell";
     }
 }
 
+#pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -327,6 +328,13 @@ static NSString *const _identifier = @"toolBarThumbCollectionViewCell";
         NSLog(@"请在真机使用!");
     }
 }
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark -
+
 
 - (void)preview:(NSNotification *)noti{
     MLSelectPhotoBrowserViewController *browserVc = [[MLSelectPhotoBrowserViewController alloc] init];
