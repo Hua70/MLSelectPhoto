@@ -84,6 +84,7 @@
     }else{
         cellImgView = [[MLPhotoPickerImageView alloc] initWithFrame:cell.bounds];
         cellImgView.delegate = self;
+        [cell.contentView addSubview:cellImgView];
     }
     cellImgView.index = indexPath.row;
     cellImgView.maskViewFlag = YES;
@@ -109,11 +110,10 @@
             }
         }
         
-        [cell.contentView addSubview:cellImgView];
         
         cellImgView.maskViewFlag = ([self.selectsIndexPath containsObject:@(indexPath.row)]);
-        
         MLSelectPhotoAssets *asset = self.dataArray[indexPath.item];
+        
         cellImgView.isVideoType = asset.isVideoType;
         if ([asset isKindOfClass:[MLSelectPhotoAssets class]]) {
             cellImgView.image = asset.thumbImage;

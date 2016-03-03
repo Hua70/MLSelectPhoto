@@ -82,6 +82,24 @@
 }
 
 - (void)clickTick{
+    
+    if (iOS8gt) {
+        // iOS7 这个方法会Crash
+        CAKeyframeAnimation *scaoleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+        scaoleAnimation.duration = 0.25;
+        scaoleAnimation.autoreverses = YES;
+        scaoleAnimation.values = @[[NSNumber numberWithFloat:1.0],[NSNumber numberWithFloat:1.2],[NSNumber numberWithFloat:1.0]];
+        scaoleAnimation.fillMode = kCAFillModeForwards;
+        
+        if (self.isVideoType) {
+            [self.videoView.layer removeAllAnimations];
+            [self.videoView.layer addAnimation:scaoleAnimation forKey:@"transform.rotate"];
+        }else{
+            [self.tickImageView.layer removeAllAnimations];
+            [self.tickImageView.layer addAnimation:scaoleAnimation forKey:@"transform.rotate"];
+        }
+    }
+    
     if ([self.delegate respondsToSelector:@selector(photoPickerClickTickButton:)]) {
         [self.delegate photoPickerClickTickButton:self.tickImageView];
     }
@@ -95,20 +113,5 @@
     }else{
         [self.tickImageView setImage:[UIImage imageNamed:MLSelectPhotoSrcName(@"icon_image_no")] forState:UIControlStateNormal];
     }
-    
-    CAKeyframeAnimation *scaoleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-    scaoleAnimation.duration = 0.25;
-    scaoleAnimation.autoreverses = YES;
-    scaoleAnimation.values = @[[NSNumber numberWithFloat:1.0],[NSNumber numberWithFloat:1.2],[NSNumber numberWithFloat:1.0]];
-    scaoleAnimation.fillMode = kCAFillModeForwards;
-    
-    if (self.isVideoType) {
-        [self.videoView.layer removeAllAnimations];
-        [self.videoView.layer addAnimation:scaoleAnimation forKey:@"transform.rotate"];
-    }else{
-        [self.tickImageView.layer removeAllAnimations];
-        [self.tickImageView.layer addAnimation:scaoleAnimation forKey:@"transform.rotate"];
-    }
-    
 }
 @end

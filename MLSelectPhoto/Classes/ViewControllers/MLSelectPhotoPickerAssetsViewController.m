@@ -18,7 +18,7 @@
 #import "MLSelectPhotoBrowserViewController.h"
 #import "UIView+MLExtension.h"
 
-static CGFloat CELL_ROW = 4;
+static CGFloat CELL_ROW = 3;
 static CGFloat CELL_MARGIN = 2;
 static CGFloat CELL_LINE_MARGIN = 2;
 static CGFloat TOOLBAR_HEIGHT = 44;
@@ -189,7 +189,7 @@ static NSString *const _identifier = @"toolBarThumbCollectionViewCell";
     self.collectionView.doneAsstes = noti.userInfo[@"assets"];
     [self.collectionView reloadData];
 
-    long count = 0;
+    NSInteger count = 0;
     if (self.collectionView.selectAsstes.count < self.selectAssets.count) {
         count = self.collectionView.selectAsstes.count;
     }else{
@@ -197,7 +197,7 @@ static NSString *const _identifier = @"toolBarThumbCollectionViewCell";
     }
 
     self.makeView.hidden = !count;
-    self.makeView.text = [NSString stringWithFormat:@"%ld",(long)count];
+    self.makeView.text = [NSString stringWithFormat:@"%ld",(NSInteger)count];
     self.doneBtn.enabled = (count > 0);
     self.previewBtn.enabled = (count > 0);
     
