@@ -254,7 +254,11 @@ static NSString *const _identifier = @"toolBarThumbCollectionViewCell";
     _maxCount = maxCount;
     
     if (!_privateTempMaxCount) {
-        _privateTempMaxCount = maxCount;
+          if (maxCount) {
+            _privateTempMaxCount = maxCount;
+        }else{
+            _privateTempMaxCount = KPhotoShowMaxCount;
+        }
     }
     
     if (self.selectAssets.count == maxCount){
